@@ -1,0 +1,70 @@
+<div class="container">
+    <div class="row">
+        <div class="col s12">
+            <h4 class="left-align">Dashboard</h4>
+            <p *ngIf="user">Hello,
+                <strong>{{user?.first_name}}</strong>!</p>
+
+            <p>This is your dashboard.</p>
+            <div *ngIf="user" class="row">
+                <div class="col s12 m12">
+                    <h6> User Details:
+                    </h6>
+
+                    <p ><strong>User ID:</strong> {{user?.user_id}}</p>
+                    <p ><strong>Full Name: </strong>{{user?.first_name}} {{user?.last_name}}</p>
+                    <p ><strong>Email Address:</strong> {{user?.email}}</p>
+                    <p ><strong>Contact Number: </strong> {{user?.phone}}</p>
+                </div>
+
+            </div>
+            <div class="row">
+                <div class="col s12 m6">
+                    <h6> Upload New Scenario
+                    </h6>
+                </div>
+                <div class="col s12 m6">
+                    <app-upload></app-upload>
+
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col s12 m12">
+                    <h6> My Scenarios
+                    </h6>
+                    <!-- <button (click) = 'getScenarios()' class="btn-small waves-effect waves-light orange lighten-1" >Scenarios</button> -->
+                    <table>
+                        <thead>
+                          <tr>
+                              <th>ID</th>
+                              <th>Name</th>
+                              <th>Link</th>
+                              <th>Description</th>
+                          </tr>
+                        </thead>
+                
+                        <tbody>
+                            <tr *ngFor="let scenario of scenarios">
+                                <td>{{scenario.id}}</td>
+                                <td>{{scenario.name}}</td>
+                                <td>{{scenario.link}}</td>
+                                <td>{{scenario.description}}</td>
+                              </tr>
+                        </tbody>
+                      </table>
+                </div>
+
+            </div>
+            <div class="row">
+                <div class="col s12 m12">
+                    <h6> Recently Downloaded
+                    </h6>
+
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+</div>

@@ -1,0 +1,24 @@
+
+<nav>
+  <div class="nav-wrapper">
+
+    <div class="container">
+        <a href="#" class="brand-logo">Gen4 Market</a>
+        <ul id="nav-mobile" class="right hide-on-med-and-down">
+          <li>    <a routerLink="/home" routerLinkActive="active">Home</a></li>
+           <li  *ngIf="this.auth.isLoggedIn"> <a routerLink="/market" routerLinkActive="active">Scenarios</a></li>
+          <li><a >Tutorials</a></li>
+          <li><a >Contact</a></li>
+          <li  *ngIf="!this.auth.isLoggedIn"><login></login></li>
+
+          <li *ngIf="this.auth.isLoggedIn"><a [matMenuTriggerFor]="menu" >Account</a></li>
+          <mat-menu #menu="matMenu">
+              <li mat-menu-item><a routerLink="/account">My Account</a></li>
+              <li mat-menu-item (click)=this.auth.logout()><a >Log Out</a></li>
+            </mat-menu>
+        </ul>
+    </div>
+  
+  </div>
+</nav>
+

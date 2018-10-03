@@ -1,0 +1,16 @@
+server {
+ listen 80 default_server;
+ listen [::]:80 default_server;
+ server_name _;
+ return 301 https://$host$request_uri;
+}
+
+server {
+  listen       443 default_server;
+  listen       [::]:443 default_server;
+  server_name  lrs.gen4.info;
+  ssl on;
+  ssl_certificate /var/www/ssl/ssl.chained.crt;
+  ssl_certificate_key /var/www/ssl/ssl.key;
+
+  }

@@ -1,0 +1,11 @@
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
+
+
+
+<div class="wrapper">
+  <label for="">Ordered by</label>
+  <select (change)='onSelectChange($event)'>
+    <option *ngFor='let filter of filters' [value]="filter.value">{{filter.name}}</option>
+  </select>
+  <div class="triangle"></div>
+</div>
